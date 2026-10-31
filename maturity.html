@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated Maturity Monitoring Matrix | FINTRAC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .maturity-tier-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .maturity-tab-btn {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--border-medium);
+      background: #FFFFFF;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--color-navy);
+      transition: all var(--transition-fast);
+    }
+    .maturity-tab-btn.active {
+      background: var(--color-forest);
+      color: #FFFFFF;
+      border-color: var(--color-forest);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Prototype Disclaimer Banner -->
+  <div class="prototype-banner">
+    <div class="banner-text">
+      <span class="pill-indicator">MATURITY ENGINE</span>
+      <span>Automated Date Differential Matrix • Dynamically categorized in real time based on system clock.</span>
+    </div>
+    <div>
+      <a href="javascript:void(0)" onclick="FINTRAC_APP.confirmResetDemo()">Reset Demo Data</a>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="admin.html" class="brand-logo">
+          <div class="brand-symbol">F</div>
+          <div class="brand-text">
+            <h1>FINTRAC</h1>
+            <span>Maturity Engine</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-role-badge">
+        <span class="role-name user-role-label">Regulation Console</span>
+        <span class="status-live">● Horizon Tracker</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        <a href="admin.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Command Centre
+        </a>
+        <a href="fdr-records.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          All FDR Records
+        </a>
+        <a href="maturity.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          Maturity Monitoring
+        </a>
+        <a href="verification.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          Verification Scrutiny
+        </a>
+        <a href="renewal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          Renewal Tracking
+        </a>
+        <a href="release-requests.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Release / Refund
+        </a>
+        <a href="alerts.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          Alert Centre
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar">AB</div>
+          <div class="user-details">
+            <div class="user-name">Dr. R. K. Soni</div>
+            <div class="user-subtext">AICTE Bureau Chief</div>
+          </div>
+          <button class="btn-sidebar-logout" onclick="FINTRAC_AUTH.logout()" title="Sign Out">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="btn-mobile-toggle">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="page-title-box">
+            <h2 class="serif-heading">Automated Maturity Monitoring Matrix</h2>
+            <p>Live countdown calculation engine with 90, 60, 30, and 7-day escalation horizons</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="quick-role-switch">
+            <a href="admin.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('admin'); return false;">AICTE Admin</a>
+            <a href="institution.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('institution'); return false;">Institution</a>
+            <a href="reviewer.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('reviewer'); return false;">Reviewer</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-container">
+
+        <!-- Critical Overdue Warning Banner -->
+        <div id="overdue-critical-alert" style="background: var(--color-terracotta-subtle); border: 1px solid var(--color-terracotta); border-left: 6px solid var(--color-terracotta); border-radius: var(--radius-sm); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <svg width="26" height="26" fill="none" stroke="var(--color-terracotta)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <div>
+              <h4 style="color: var(--color-terracotta); margin-bottom: 2px;">Overdue Instruments Detected</h4>
+              <p style="font-size: 0.84rem; color: var(--color-navy);" id="overdue-banner-text">
+                Statutory deposit maturity date has passed without council renewal certification.
+              </p>
+            </div>
+          </div>
+          <a href="renewal.html" class="btn btn-terracotta btn-sm">Process Urgent Rollover</a>
+        </div>
+
+        <!-- Tier Metric Cards -->
+        <div class="maturity-tier-cards">
+          <div class="stat-card card-terracotta" onclick="FINTRAC_MATURITY.filterByHorizon('Matured')" style="cursor: pointer;">
+            <div class="stat-header">
+              <span class="stat-title text-terracotta">1. Matured (Overdue)</span>
+              <span class="badge badge-terracotta">Elapsed</span>
+            </div>
+            <div class="stat-value text-terracotta" id="matrix-count-matured">0</div>
+            <div class="stat-footer" id="matrix-sum-matured">₹0</div>
+          </div>
+
+          <div class="stat-card card-peach" onclick="FINTRAC_MATURITY.filterByHorizon('Expiring Soon')" style="cursor: pointer;">
+            <div class="stat-header">
+              <span class="stat-title">2. Expiring (&lt;=30d)</span>
+              <span class="badge badge-terracotta">Urgent</span>
+            </div>
+            <div class="stat-value" id="matrix-count-expiring">0</div>
+            <div class="stat-footer" id="matrix-sum-expiring">₹0</div>
+          </div>
+
+          <div class="stat-card card-olive" onclick="FINTRAC_MATURITY.filterByHorizon('Approaching Maturity')" style="cursor: pointer;">
+            <div class="stat-header">
+              <span class="stat-title">3. Approaching (31–90d)</span>
+              <span class="badge badge-olive">Warning</span>
+            </div>
+            <div class="stat-value" id="matrix-count-approaching">0</div>
+            <div class="stat-footer" id="matrix-sum-approaching">₹0</div>
+          </div>
+
+          <div class="stat-card" onclick="FINTRAC_MATURITY.filterByHorizon('Active')" style="cursor: pointer;">
+            <div class="stat-header">
+              <span class="stat-title text-forest">4. Active (&gt;90d)</span>
+              <span class="badge badge-forest">Compliant</span>
+            </div>
+            <div class="stat-value text-forest" id="matrix-count-active">0</div>
+            <div class="stat-footer" id="matrix-sum-active">₹0</div>
+          </div>
+        </div>
+
+        <!-- Configurable Reminder Simulator Controls -->
+        <div class="dashboard-card" style="padding: 18px 24px; background: var(--bg-card-subtle);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <h4 style="font-size: 0.95rem; color: var(--color-navy); margin-bottom: 2px;">
+                ⚡ Configurable Reminder Threshold Simulator
+              </h4>
+              <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                Test automated alert generation at regulatory reminder intervals:
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-sm" onclick="FINTRAC_MATURITY.testReminderAlert(90)">
+                Test 90-Day Notice
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="FINTRAC_MATURITY.testReminderAlert(60)">
+                Test 60-Day Notice
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="FINTRAC_MATURITY.testReminderAlert(30)">
+                Test 30-Day Notice
+              </button>
+              <button class="btn btn-terracotta btn-sm" onclick="FINTRAC_MATURITY.testReminderAlert(7)">
+                Test 7-Day Urgent
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maturity Table Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              Financial Instruments Ranked by Maturity Horizon
+            </h3>
+            <div class="card-header-actions" style="display: flex; gap: 6px;">
+              <button class="maturity-tab-btn active" data-category="ALL" onclick="FINTRAC_MATURITY.filterByHorizon('ALL')">All Tiers</button>
+              <button class="maturity-tab-btn" data-category="Matured" onclick="FINTRAC_MATURITY.filterByHorizon('Matured')">Matured</button>
+              <button class="maturity-tab-btn" data-category="Expiring Soon" onclick="FINTRAC_MATURITY.filterByHorizon('Expiring Soon')">&lt;= 30 Days</button>
+              <button class="maturity-tab-btn" data-category="Approaching Maturity" onclick="FINTRAC_MATURITY.filterByHorizon('Approaching Maturity')">31–90 Days</button>
+              <button class="maturity-tab-btn" data-category="Active" onclick="FINTRAC_MATURITY.filterByHorizon('Active')">&gt; 90 Days</button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>FDR Reference &amp; Institution</th>
+                    <th>Issuing Bank</th>
+                    <th>Deposit Amount</th>
+                    <th>Issue Date</th>
+                    <th>Maturity Date</th>
+                    <th>Days Remaining</th>
+                    <th>Horizon Tier</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="maturity-table-tbody">
+                  <!-- Populated by maturity.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Shared Details Modal -->
+  <div class="modal-overlay" id="fdr-details-modal">
+    <div class="modal-content modal-xl">
+      <div class="modal-header">
+        <h3 id="fdr-details-modal-title">Instrument Dossier</h3>
+        <button class="modal-close" onclick="FINTRAC_APP.closeModal('fdr-details-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="fdr-details-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="FINTRAC_APP.closeModal('fdr-details-modal')">Close Dossier</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Document Preview Modal -->
+  <div class="modal-overlay" id="doc-preview-modal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3 id="doc-preview-modal-title">Document Viewer</h3>
+        <button class="modal-close" onclick="FINTRAC_APP.closeModal('doc-preview-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="doc-preview-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="FINTRAC_APP.closeModal('doc-preview-modal')">Close Viewer</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/fdr.js"></script>
+  <script src="js/maturity.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      FINTRAC_AUTH.guard(['admin', 'institution', 'reviewer']);
+      FINTRAC_MATURITY.init();
+    });
+  </script>
+</body>
+</html>

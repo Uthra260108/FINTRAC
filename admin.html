@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AICTE Regulation Bureau — Command Centre | FINTRAC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Prototype Disclaimer Banner -->
+  <div class="prototype-banner">
+    <div class="banner-text">
+      <span class="pill-indicator">DEMO CONSOLE</span>
+      <span>AICTE Regulation Bureau Command Centre • Prototype environment for AICTE Security Deposit / FDR Portal evaluation.</span>
+    </div>
+    <div>
+      <a href="javascript:void(0)" onclick="FINTRAC_APP.confirmResetDemo()">Reset Demo Data</a>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="admin.html" class="brand-logo">
+          <div class="brand-symbol">F</div>
+          <div class="brand-text">
+            <h1>FINTRAC</h1>
+            <span>AICTE Bureau Console</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-role-badge">
+        <span class="role-name">AICTE Bureau Admin</span>
+        <span class="status-live">● Live Console</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Administration</div>
+        <a href="admin.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Overview
+        </a>
+        <a href="#institutions-section" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Institutions
+        </a>
+        <a href="fdr-records.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          All FDR Records
+        </a>
+
+        <div class="nav-section-title">Regulatory Scrutiny</div>
+        <a href="verification.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          Document Verification
+          <span class="nav-counter" id="badge-verif-count">28</span>
+        </a>
+        <a href="maturity.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          Maturity Monitoring
+          <span class="nav-counter alert-pill" id="badge-expiring-count">42</span>
+        </a>
+        <a href="renewal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          Renewal Tracking
+        </a>
+        <a href="release-requests.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Release / Refund
+          <span class="nav-counter">16</span>
+        </a>
+
+        <div class="nav-section-title">Reporting &amp; System</div>
+        <a href="alerts.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          Alert Centre
+        </a>
+        <a href="reports.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          Reports &amp; Analytics
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          Audit History
+        </a>
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar">AB</div>
+          <div class="user-details">
+            <div class="user-name">Dr. R. K. Soni</div>
+            <div class="user-subtext">AICTE Bureau Chief</div>
+          </div>
+          <button class="btn-sidebar-logout" onclick="FINTRAC_AUTH.logout()" title="Sign Out">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Topbar -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="btn-mobile-toggle">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="page-title-box">
+            <h2 class="serif-heading">AICTE Regulation Bureau — Command Centre</h2>
+            <p>Apex regulatory oversight of institutional security deposits &amp; fixed deposit receipts</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- 1-Click Role Switcher for Hackathon Judges -->
+          <div class="quick-role-switch">
+            <a href="admin.html" class="role-pill active">AICTE Admin</a>
+            <a href="institution.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('institution'); return false;">Institution</a>
+            <a href="reviewer.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('reviewer'); return false;">Reviewer</a>
+          </div>
+
+          <a href="alerts.html" class="topbar-btn" title="Alert Centre">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="notification-dot"></span>
+          </a>
+
+          <a href="fdr-records.html" class="btn btn-primary btn-sm">
+            Registry Master
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <div class="page-container">
+
+        <!-- Macro Statistic Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Total Institutions</span>
+              <div class="stat-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              </div>
+            </div>
+            <div class="stat-value" id="stat-total-inst">1,248</div>
+            <div class="stat-footer">
+              <span class="trend-up">↑ 100% Registered</span> in national portal
+            </div>
+          </div>
+
+          <div class="stat-card card-navy">
+            <div class="stat-header">
+              <span class="stat-title">Active Instruments</span>
+              <div class="stat-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+              </div>
+            </div>
+            <div class="stat-value" id="stat-active-instruments">3,860</div>
+            <div class="stat-footer">
+              <span class="trend-up">Active Lien Endorsed</span>
+            </div>
+          </div>
+
+          <div class="stat-card card-olive">
+            <div class="stat-header">
+              <span class="stat-title">Total Deposit Value</span>
+              <div class="stat-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+            </div>
+            <div class="stat-value" id="stat-total-deposit-value">₹245 Crore</div>
+            <div class="stat-footer">
+              <span>Secured in Scheduled Banks</span>
+            </div>
+          </div>
+
+          <div class="stat-card card-terracotta">
+            <div class="stat-header">
+              <span class="stat-title">Expiring Soon (&lt;=30d)</span>
+              <div class="stat-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+            </div>
+            <div class="stat-value text-terracotta" id="stat-expiring-soon">42</div>
+            <div class="stat-footer">
+              <span class="trend-warning">Urgent Action Required</span>
+            </div>
+          </div>
+
+          <div class="stat-card card-peach">
+            <div class="stat-header">
+              <span class="stat-title">Pending Verification</span>
+              <div class="stat-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              </div>
+            </div>
+            <div class="stat-value" id="stat-pending-verification">28</div>
+            <div class="stat-footer">
+              <span>Awaiting Scrutiny Queue</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Pending Release</span>
+              <div class="stat-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline></svg>
+              </div>
+            </div>
+            <div class="stat-value" id="stat-pending-release">16</div>
+            <div class="stat-footer">
+              <span>Course Closure Clearance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section A: Financial Overview -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Financial Overview &amp; Instrument Holdings
+            </h3>
+            <div class="card-header-actions">
+              <span class="badge badge-forest">Live Prototype Registry</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-grid-3">
+              <div style="padding: 16px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); border-left: 4px solid var(--color-forest);">
+                <span class="sub-text">ACTIVE SECURITY DEPOSITS</span>
+                <h4 style="font-size: 1.5rem; color: var(--color-navy); margin: 4px 0;" id="fin-active-sum">₹210.50 Cr</h4>
+                <p style="font-size: 0.8rem; color: var(--color-forest);" id="fin-active-count">Current valid instruments</p>
+              </div>
+              <div style="padding: 16px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); border-left: 4px solid var(--color-terracotta);">
+                <span class="sub-text">MATURED / OVERDUE VALUE</span>
+                <h4 style="font-size: 1.5rem; color: var(--color-terracotta); margin: 4px 0;" id="fin-matured-sum">₹14.50 Cr</h4>
+                <p style="font-size: 0.8rem; color: var(--color-terracotta);" id="fin-matured-count">Requires urgent rollover</p>
+              </div>
+              <div style="padding: 16px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); border-left: 4px solid var(--color-olive-dark);">
+                <span class="sub-text">SIMULATED RELEASED HOLDINGS</span>
+                <h4 style="font-size: 1.5rem; color: var(--color-navy); margin: 4px 0;" id="fin-released-sum">₹20.00 Cr</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);" id="fin-released-count">Released upon council clearance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section B & D: Two Column Split for Maturity Horizon & Pending Actions -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+
+          <!-- Section B: Maturity Monitoring -->
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h3>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                Maturity Monitoring Horizons
+              </h3>
+              <div class="card-header-actions">
+                <a href="maturity.html" class="btn btn-outline btn-sm">Full Matrix</a>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px;">
+                <div style="text-align: center; padding: 12px; background: var(--color-terracotta-subtle); border-radius: var(--radius-sm); border: 1px solid rgba(94,48,35,0.2);">
+                  <div style="font-size: 0.72rem; font-weight: 700; color: var(--color-terracotta);">MATURED</div>
+                  <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-terracotta);" id="count-matured">0</div>
+                  <div style="font-size: 0.7rem; color: var(--color-terracotta);">Overdue</div>
+                </div>
+                <div style="text-align: center; padding: 12px; background: var(--color-terracotta-subtle); border-radius: var(--radius-sm); border: 1px solid rgba(94,48,35,0.2);">
+                  <div style="font-size: 0.72rem; font-weight: 700; color: var(--color-terracotta);">&lt;= 30 DAYS</div>
+                  <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-terracotta);" id="count-due-30">0</div>
+                  <div style="font-size: 0.7rem; color: var(--color-terracotta);">Critical</div>
+                </div>
+                <div style="text-align: center; padding: 12px; background: var(--color-olive-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+                  <div style="font-size: 0.72rem; font-weight: 700; color: #725c1e;">31–60 DAYS</div>
+                  <div style="font-size: 1.4rem; font-weight: 800; color: #725c1e;" id="count-due-60">0</div>
+                  <div style="font-size: 0.7rem; color: #725c1e;">Approaching</div>
+                </div>
+                <div style="text-align: center; padding: 12px; background: rgba(68,93,72,0.1); border-radius: var(--radius-sm); border: 1px solid rgba(68,93,72,0.2);">
+                  <div style="font-size: 0.72rem; font-weight: 700; color: var(--color-forest);">61–90 DAYS</div>
+                  <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-forest);" id="count-due-90">0</div>
+                  <div style="font-size: 0.7rem; color: var(--color-forest);">Standard</div>
+                </div>
+              </div>
+
+              <!-- Quick Table -->
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>FDR Reference</th>
+                      <th>Bank</th>
+                      <th>Amount</th>
+                      <th>Maturity Date</th>
+                      <th>Status Tier</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="maturity-preview-tbody">
+                    <!-- Dynamic -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section D: Pending Actions -->
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h3>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Pending Actions
+              </h3>
+            </div>
+            <div class="card-body">
+              <div id="pending-actions-list">
+                <!-- Dynamically generated items -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section C: Recent Activities -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              Recent System Activities &amp; Submissions
+            </h3>
+            <div class="card-header-actions">
+              <a href="audit.html" class="btn btn-secondary btn-sm">View Complete Audit Log</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="recent-activities-list">
+              <!-- Dynamically populated from audit log -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Section E: Institution Monitoring -->
+        <div class="dashboard-card" id="institutions-section">
+          <div class="card-header">
+            <h3>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Institution Regulatory Compliance Monitoring
+            </h3>
+            <div class="card-header-actions">
+              <button class="btn btn-secondary btn-sm" onclick="FINTRAC_REPORTS.exportFDRDataCSV()">Export CSV</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Institution Name</th>
+                    <th>Institution ID</th>
+                    <th class="text-center">Total Instruments</th>
+                    <th class="text-center">Active Instruments</th>
+                    <th class="text-center">Expiring / Matured</th>
+                    <th class="text-center">Pending Requests</th>
+                    <th>Compliance Status</th>
+                  </tr>
+                </thead>
+                <tbody id="institutions-table-body">
+                  <!-- Populated by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Shared Modals (FDR Details, Edit, Document Preview) -->
+  <div class="modal-overlay" id="fdr-details-modal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3 id="fdr-details-modal-title">Instrument Dossier</h3>
+        <button class="modal-close" onclick="FINTRAC_APP.closeModal('fdr-details-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="fdr-details-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="FINTRAC_APP.closeModal('fdr-details-modal')">Close Dossier</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Permitted Info Modal -->
+  <div class="modal-overlay" id="fdr-edit-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Permitted Instrument Information</h3>
+        <button class="modal-close" onclick="FINTRAC_APP.closeModal('fdr-edit-modal')">&times;</button>
+      </div>
+      <form id="edit-fdr-form" onsubmit="FINTRAC_FDR.handleEditSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="edit-fdr-id">
+          <div class="form-group">
+            <label class="form-label">FDR Reference (Locked)</label>
+            <input type="text" id="edit-fdr-ref" class="form-control" disabled>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Bank (Locked)</label>
+              <input type="text" id="edit-fdr-bank" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="edit-fdr-branch">Branch Details</label>
+              <input type="text" id="edit-fdr-branch" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Amount (Locked)</label>
+              <input type="text" id="edit-fdr-amount" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Maturity Date (Locked)</label>
+              <input type="date" id="edit-fdr-maturity-date" class="form-control" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="edit-fdr-holder">Deposit Holder Endorsement</label>
+            <input type="text" id="edit-fdr-holder" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="edit-fdr-remarks">Administrative Scrutiny Notes &amp; Updates</label>
+            <textarea id="edit-fdr-remarks" class="form-control" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="FINTRAC_APP.closeModal('fdr-edit-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="doc-preview-modal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3 id="doc-preview-modal-title">Document Viewer</h3>
+        <button class="modal-close" onclick="FINTRAC_APP.closeModal('doc-preview-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="doc-preview-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="FINTRAC_APP.closeModal('doc-preview-modal')">Close Viewer</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/fdr.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/reports.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Guard: user must be authenticated
+      FINTRAC_AUTH.guard(['admin']);
+      FINTRAC_ADMIN.init();
+    });
+  </script>
+</body>
+</html>

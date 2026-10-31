@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FINTRAC — Financial Instrument Tracking & Regulatory Administration Console</title>
+  <meta name="description" content="A centralized digital platform for managing, monitoring and tracking security deposits and Fixed Deposit Receipts associated with AICTE approval-related processes.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Landing Specific Styles */
+    .landing-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .landing-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .landing-links a {
+      color: var(--color-navy);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color var(--transition-fast);
+    }
+    .landing-links a:hover {
+      color: var(--color-forest);
+    }
+    .hero-section {
+      background: linear-gradient(180deg, var(--bg-card-subtle) 0%, var(--bg-primary) 100%);
+      padding: 80px 24px 70px 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--color-peach);
+      color: var(--color-navy);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      border: 1px solid var(--color-peach-border);
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      max-width: 880px;
+      margin: 0 auto 20px auto;
+      line-height: 1.15;
+      color: var(--color-navy);
+    }
+    .hero-desc {
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 auto 36px auto;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 50px auto;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+    .portal-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .portal-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-base);
+      position: relative;
+    }
+    .portal-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-olive);
+    }
+    .portal-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--color-peach-light);
+      color: var(--color-forest);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .portal-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      color: var(--color-navy);
+    }
+    .portal-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .portal-card-credentials {
+      background: var(--bg-card-subtle);
+      border: 1px dashed var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      font-size: 1.1rem;
+      margin: 12px 0 6px 0;
+      color: var(--color-navy);
+    }
+    .feature-card p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .step-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+      position: relative;
+    }
+    .step-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      position: relative;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-forest);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 14px auto;
+    }
+    .landing-footer {
+      background: var(--color-navy);
+      color: #FFFFFF;
+      padding: 60px 24px 30px 24px;
+      margin-top: auto;
+    }
+    @media (max-width: 768px) {
+      .landing-nav { padding: 14px 20px; }
+      .landing-links { display: none; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Prototype Notice Bar -->
+  <div class="prototype-banner">
+    <div class="banner-text">
+      <span class="pill-indicator">PROTOTYPE</span>
+      <span>FINTRAC: Streamline of Security Deposit / FDR Portal — Fictional demonstration environment for AICTE evaluation.</span>
+    </div>
+    <div>
+      <a href="javascript:void(0)" onclick="FINTRAC_APP.confirmResetDemo()">Reset Demo Data</a>
+    </div>
+  </div>
+
+  <!-- Landing Navigation -->
+  <nav class="landing-nav">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-symbol">F</div>
+      <div class="brand-text">
+        <h1 style="color: var(--color-navy);">FINTRAC</h1>
+        <span style="color: var(--color-forest);">Every Deposit Under Control</span>
+      </div>
+    </a>
+
+    <ul class="landing-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#problem">Problem Statement</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#portals">Portals</a></li>
+      <li><a href="#how-it-works">Lifecycle</a></li>
+      <li><a href="reports.html">Analytics</a></li>
+    </ul>
+
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+      <a href="login.html" class="btn btn-primary btn-sm">Access Portal</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-badge">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      AICTE Security Deposit &amp; FDR Digital Lifecycle
+    </div>
+    <h1 class="hero-title serif-heading">
+      Bringing Transparency to Every Financial Instrument.
+    </h1>
+    <p class="hero-desc">
+      A centralized digital platform for managing, monitoring and tracking security deposits and Fixed Deposit Receipts associated with AICTE approval-related processes.
+    </p>
+    <div class="hero-actions">
+      <a href="#portals" class="btn btn-primary btn-lg">
+        Explore Portals &amp; Demo
+      </a>
+      <a href="login.html" class="btn btn-secondary btn-lg">
+        Sign In with Demo Role
+      </a>
+    </div>
+  </header>
+
+  <!-- Problem Statement Overview -->
+  <section id="problem" class="section-container" style="border-bottom: 1px solid var(--border-light);">
+    <div class="section-header">
+      <span class="badge badge-terracotta mb-8">PROBLEM STATEMENT</span>
+      <h2 class="serif-heading">Streamline of Security Deposit / FDR Portal</h2>
+      <p>The All India Council for Technical Education (AICTE) requires institutional security deposits and FDRs as statutory guarantees. Manual tracking across hundreds of institutions creates critical operational vulnerabilities.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" style="border-top: 4px solid var(--color-terracotta);">
+        <div style="color: var(--color-terracotta); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Manual Risk #1</div>
+        <h4>Missing Instrument Records</h4>
+        <p>Difficulty in maintaining institution-wise FDR documents, leading to missing certificates, fragmented physical registers, and misplaced deposit endorsements.</p>
+      </div>
+
+      <div class="feature-card" style="border-top: 4px solid var(--color-terracotta);">
+        <div style="color: var(--color-terracotta); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Manual Risk #2</div>
+        <h4>Unmonitored Maturity Dates</h4>
+        <p>Failure to identify instruments reaching maturity deadlines in advance, resulting in lapsed guarantees and delayed renewals without council authorization.</p>
+      </div>
+
+      <div class="feature-card" style="border-top: 4px solid var(--color-terracotta);">
+        <div style="color: var(--color-terracotta); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Manual Risk #3</div>
+        <h4>Opaque Release Workflows</h4>
+        <p>Difficulties tracking refund petitions, student clearances, and course closure NOCs, creating administrative delays and lack of centralized visibility.</p>
+      </div>
+
+      <div class="feature-card" style="border-top: 4px solid var(--color-terracotta);">
+        <div style="color: var(--color-terracotta); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Manual Risk #4</div>
+        <h4>Delayed Discrepancy Detection</h4>
+        <p>Absence of standardized scrutiny workbenches prevents timely detection of mismatch in lien markings, tenure durations, or deposit principal values.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three User Portals Section -->
+  <section id="portals" class="section-container" style="border-bottom: 1px solid var(--border-light); background: var(--bg-card-subtle);">
+    <div class="section-header">
+      <span class="badge badge-forest mb-8">ROLE-BASED WORKSPACES</span>
+      <h2 class="serif-heading">Three Dedicated Portals for Unified Oversight</h2>
+      <p>Seamlessly toggle between Regulatory Administration, Institutional Management, and Authorized Scrutiny with 1-click test credentials.</p>
+    </div>
+
+    <div class="portal-cards-grid">
+      <!-- Portal 1: AICTE Admin -->
+      <div class="portal-card" style="border-top: 5px solid var(--color-forest);">
+        <div class="portal-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        </div>
+        <span class="badge badge-forest mb-8" style="align-self: flex-start;">Regulatory Authority</span>
+        <h3>AICTE Regulation Bureau</h3>
+        <p>Command centre to monitor ₹245+ Crore across all institutions, scrutinize documents, track 30-60-90 day maturities, and approve renewals or releases.</p>
+
+        <div class="portal-card-credentials">
+          <div><strong>Demo User:</strong> <span class="font-mono">admin</span></div>
+          <div><strong>Password:</strong> <span class="font-mono">admin123</span></div>
+        </div>
+
+        <a href="login.html?role=admin" class="btn btn-primary" style="width: 100%;">
+          Launch Admin Command Centre
+        </a>
+      </div>
+
+      <!-- Portal 2: Institution Admin -->
+      <div class="portal-card" style="border-top: 5px solid var(--color-peach-border);">
+        <div class="portal-card-icon" style="background: var(--color-peach); color: var(--color-navy);">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </div>
+        <span class="badge badge-peach mb-8" style="align-self: flex-start;">Institution Workspace</span>
+        <h3>Institution Administrator</h3>
+        <p>Workspace for technical colleges and universities (demo: MIT Pune) to register new FDRs, upload documents, track impending maturities, and submit renewals.</p>
+
+        <div class="portal-card-credentials">
+          <div><strong>Demo User:</strong> <span class="font-mono">mit</span></div>
+          <div><strong>Password:</strong> <span class="font-mono">mit123</span></div>
+        </div>
+
+        <a href="login.html?role=institution" class="btn btn-secondary" style="width: 100%;">
+          Launch Institution Workspace
+        </a>
+      </div>
+
+      <!-- Portal 3: Authorized Reviewer -->
+      <div class="portal-card" style="border-top: 5px solid var(--color-olive-dark);">
+        <div class="portal-card-icon" style="background: var(--color-olive-subtle); color: #725c1e;">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        </div>
+        <span class="badge badge-olive mb-8" style="align-self: flex-start;">Scrutiny &amp; Verification</span>
+        <h3>Authorized Reviewer</h3>
+        <p>Simulated scrutiny workbench to compare institution-submitted receipts against independently confirmed records, flag discrepancies, and record findings.</p>
+
+        <div class="portal-card-credentials">
+          <div><strong>Demo User:</strong> <span class="font-mono">reviewer</span></div>
+          <div><strong>Password:</strong> <span class="font-mono">review123</span></div>
+        </div>
+
+        <a href="login.html?role=reviewer" class="btn btn-olive" style="width: 100%;">
+          Launch Reviewer Workbench
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works: 12-Step Lifecycle -->
+  <section id="how-it-works" class="section-container" style="border-bottom: 1px solid var(--border-light);">
+    <div class="section-header">
+      <span class="badge badge-forest mb-8">END-TO-END WORKFLOW</span>
+      <h2 class="serif-heading">The Complete Financial Instrument Lifecycle</h2>
+      <p>From initial draft creation to automated maturity calculations, replacement renewals, and regulatory release.</p>
+    </div>
+
+    <div class="step-flow">
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <h4>Registration</h4>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);">Institution uploads deposit certificate, bank branch, and tenure details.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <h4>Scrutiny &amp; Lien</h4>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);">Reviewer checks joint-lien endorsement in favor of AICTE and records observations.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <h4>Maturity Tracking</h4>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);">Automated live date calculations trigger 90, 60, 30, and 7-day alert notices.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">4</div>
+        <h4>Renewal &amp; Rollover</h4>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);">Institutions submit replacement instruments with linked audit history.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">5</div>
+        <h4>Orderly Release</h4>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);">Clearance petition reviewed and approved with simulated lien revocation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Platform Features -->
+  <section id="features" class="section-container">
+    <div class="section-header">
+      <span class="badge badge-olive mb-8">CORE CAPABILITIES</span>
+      <h2 class="serif-heading">Built Specifically for AICTE Regulatory Rigor</h2>
+      <p>Replacing spreadsheet chaos with an enterprise-grade digital administration console.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="stat-icon" style="margin-bottom: 12px;">📅</div>
+        <h4>Automated Maturity Matrix</h4>
+        <p>Live JavaScript date engine categorizes active, approaching (31–90d), expiring (1–30d), and overdue instruments with zero manual recalculations.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="stat-icon" style="margin-bottom: 12px;">⚖️</div>
+        <h4>Document Scrutiny Interface</h4>
+        <p>Side-by-side comparison distinguishes institution-submitted records from independently confirmed demo data, eliminating confirmation ambiguity.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="stat-icon" style="margin-bottom: 12px;">🔄</div>
+        <h4>Renewal &amp; Replacement Linkage</h4>
+        <p>Maintains explicit relational parent-child links between expired FDRs and replacement instruments with rollover amount and tenure tracking.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="stat-icon" style="margin-bottom: 12px;">📜</div>
+        <h4>Immutable Activity Audit Trail</h4>
+        <p>Every login, submission, scrutiny observation, and status transition is recorded in reverse-chronological order with timestamps and role identifiers.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="stat-icon" style="margin-bottom: 12px;">🔔</div>
+        <h4>Intelligent Alert Centre</h4>
+        <p>Automated priority categorisation (Critical, High, Medium) with distinct palette badging for immediate regulatory attention.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="stat-icon" style="margin-bottom: 12px;">📊</div>
+        <h4>Zero-Dependency Analytics</h4>
+        <p>Native HTML5 Canvas charts and one-click CSV export engine for institution-wise and bank-wise corpus reporting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Landing Footer -->
+  <footer class="landing-footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px; padding-bottom: 40px; border-bottom: 1px solid rgba(253, 229, 212, 0.15);">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 14px;">
+          <div class="brand-symbol">F</div>
+          <div class="brand-text">
+            <h1 style="color: #FFFFFF;">FINTRAC</h1>
+            <span style="color: var(--color-peach);">Every Deposit Under Control</span>
+          </div>
+        </div>
+        <p style="font-size: 0.84rem; color: rgba(255,255,255,0.7); line-height: 1.6;">
+          Financial Instrument Tracking &amp; Regulatory Administration Console. Prototype solution designed for the AICTE Security Deposit / FDR Portal problem statement.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="color: var(--color-olive); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Quick Portals</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem;">
+          <li><a href="login.html?role=admin" style="color: #fff;">AICTE Admin Portal</a></li>
+          <li><a href="login.html?role=institution" style="color: #fff;">Institution Workspace</a></li>
+          <li><a href="login.html?role=reviewer" style="color: #fff;">Authorized Reviewer Demo</a></li>
+          <li><a href="reports.html" style="color: #fff;">Analytics &amp; Reports</a></li>
+          <li><a href="audit.html" style="color: #fff;">Audit History Trail</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color: var(--color-olive); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Demo Credentials</h4>
+        <div style="font-size: 0.82rem; color: rgba(255,255,255,0.8); line-height: 1.7;">
+          <div><strong>AICTE Admin:</strong> <span class="font-mono">admin / admin123</span></div>
+          <div><strong>Institution:</strong> <span class="font-mono">mit / mit123</span></div>
+          <div><strong>Reviewer:</strong> <span class="font-mono">reviewer / review123</span></div>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: var(--color-olive); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">System Disclaimer</h4>
+        <p style="font-size: 0.76rem; color: rgba(255,255,255,0.6); line-height: 1.5;">
+          This web application is a frontend demonstration prototype for Smart India Hackathon evaluation. It utilizes browser localStorage and simulated records. No live bank or AICTE server connection exists.
+        </p>
+      </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 24px auto 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.5);">
+      <div>© 2026 FINTRAC Prototype. All rights reserved.</div>
+      <div>Designed with HTML5, CSS3 &amp; Vanilla JavaScript</div>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

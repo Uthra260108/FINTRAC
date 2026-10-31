@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — FINTRAC Regulatory Administration Console</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at 10% 20%, var(--bg-card-subtle) 0%, var(--bg-primary) 90%);
+    }
+    .login-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+    .login-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      max-width: 480px;
+      width: 100%;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--color-forest);
+    }
+    .role-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+    .role-tab-btn {
+      padding: 9px 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+      text-align: center;
+    }
+    .role-tab-btn.active {
+      background: var(--color-forest);
+      color: #FFFFFF;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .quick-autofill-box {
+      background: var(--color-peach-light);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 22px;
+    }
+    .quick-autofill-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .autofill-buttons {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .autofill-btn {
+      padding: 4px 10px;
+      font-size: 0.74rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--color-navy);
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+    .autofill-btn:hover {
+      background: var(--color-peach);
+      border-color: var(--color-forest);
+    }
+  </style>
+</head>
+<body class="login-wrapper">
+
+  <!-- Top Prototype Banner -->
+  <div class="prototype-banner">
+    <div class="banner-text">
+      <span class="pill-indicator">SIMULATION</span>
+      <span>FINTRAC Prototype Authentication • Simulated frontend session state. No live credentials.</span>
+    </div>
+    <div>
+      <a href="index.html">← Back to Public Website</a>
+    </div>
+  </div>
+
+  <div class="login-container">
+    <div class="login-card">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="brand-symbol" style="margin: 0 auto 12px auto; width: 44px; height: 44px; font-size: 1.4rem;">F</div>
+        <h2 class="serif-heading" style="font-size: 1.7rem; margin-bottom: 4px;">FINTRAC Console</h2>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">Financial Instrument Tracking &amp; Regulatory Administration</p>
+      </div>
+
+      <!-- Role Selector Tabs -->
+      <div class="role-tabs" id="role-tabs">
+        <button type="button" class="role-tab-btn active" data-role="admin" onclick="switchLoginRole('admin')">
+          AICTE Admin
+        </button>
+        <button type="button" class="role-tab-btn" data-role="institution" onclick="switchLoginRole('institution')">
+          Institution
+        </button>
+        <button type="button" class="role-tab-btn" data-role="reviewer" onclick="switchLoginRole('reviewer')">
+          Reviewer Demo
+        </button>
+      </div>
+
+      <!-- Quick 1-Click Autofill for Hackathon Judges -->
+      <div class="quick-autofill-box">
+        <div class="quick-autofill-title">
+          <span>⚡ 1-Click Demo Login</span>
+          <span style="font-weight: 400; font-size: 0.7rem; color: var(--text-muted);">Quick Credentials</span>
+        </div>
+        <div class="autofill-buttons">
+          <button type="button" class="autofill-btn" onclick="autofillCredentials('admin', 'admin123', 'admin')">
+            Admin (admin / admin123)
+          </button>
+          <button type="button" class="autofill-btn" onclick="autofillCredentials('mit', 'mit123', 'institution')">
+            MIT Pune (mit / mit123)
+          </button>
+          <button type="button" class="autofill-btn" onclick="autofillCredentials('reviewer', 'review123', 'reviewer')">
+            Reviewer (reviewer / review123)
+          </button>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-username">
+            Username <span class="required">*</span>
+          </label>
+          <input type="text" id="login-username" class="form-control" placeholder="e.g. admin or mit" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">
+            Password <span class="required">*</span>
+          </label>
+          <div class="input-group">
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+            <button type="button" id="btn-toggle-password" style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 0.8rem; font-weight: 600;" onclick="togglePasswordVisibility()">
+              Show
+            </button>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin: 16px 0 24px 0; font-size: 0.82rem;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-secondary);">
+            <input type="checkbox" id="login-remember" checked>
+            <span>Remember session on this device</span>
+          </label>
+          <a href="javascript:void(0)" onclick="alert('Demo prototype password recovery:\n\nAdmin: admin / admin123\nInstitution: mit / mit123\nReviewer: reviewer / review123')" style="color: var(--color-forest);">Forgot?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          Sign In to Console
+        </button>
+      </form>
+
+      <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border-light); font-size: 0.76rem; color: var(--text-muted); text-align: center; line-height: 1.5;">
+        🔒 Prototype Environment: Credentials are authenticated locally against client mock identities. Do not enter sensitive production credentials.
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let activeRole = 'admin';
+
+    // Parse URL parameter if coming from landing page
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const role = params.get('role');
+      if (role && ['admin', 'institution', 'reviewer'].includes(role)) {
+        switchLoginRole(role);
+      } else {
+        autofillCredentials('admin', 'admin123', 'admin');
+      }
+    });
+
+    function switchLoginRole(roleKey) {
+      activeRole = roleKey;
+      document.querySelectorAll('.role-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.role === roleKey);
+      });
+
+      if (roleKey === 'admin') {
+        autofillCredentials('admin', 'admin123', 'admin');
+      } else if (roleKey === 'institution') {
+        autofillCredentials('mit', 'mit123', 'institution');
+      } else if (roleKey === 'reviewer') {
+        autofillCredentials('reviewer', 'review123', 'reviewer');
+      }
+    }
+
+    function autofillCredentials(user, pass, role) {
+      activeRole = role;
+      document.querySelectorAll('.role-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.role === role);
+      });
+      document.getElementById('login-username').value = user;
+      document.getElementById('login-password').value = pass;
+    }
+
+    function togglePasswordVisibility() {
+      const passInput = document.getElementById('login-password');
+      const toggleBtn = document.getElementById('btn-toggle-password');
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        toggleBtn.textContent = 'Hide';
+      } else {
+        passInput.type = 'password';
+        toggleBtn.textContent = 'Show';
+      }
+    }
+
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = document.getElementById('login-username').value;
+      const pass = document.getElementById('login-password').value;
+
+      const res = FINTRAC_AUTH.login(user, pass, activeRole);
+      if (res.success) {
+        FINTRAC_APP.showToast('Authentication Successful', `Welcome, ${res.user.displayName}`, 'success');
+        setTimeout(() => {
+          window.location.href = res.redirectUrl;
+        }, 600);
+      } else {
+        FINTRAC_APP.showToast('Login Failed', res.message, 'error');
+      }
+    });
+  </script>
+</body>
+</html>

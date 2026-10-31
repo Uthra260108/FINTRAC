@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renewal &amp; Replacement Management | FINTRAC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Prototype Disclaimer Banner -->
+  <div class="prototype-banner">
+    <div class="banner-text">
+      <span class="pill-indicator">RENEWAL &amp; ROLLOVER</span>
+      <span>FINTRAC Renewal Module • Continuous guarantee tracking and replacement instrument linkage.</span>
+    </div>
+    <div>
+      <a href="javascript:void(0)" onclick="FINTRAC_APP.confirmResetDemo()">Reset Demo Data</a>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="admin.html" class="brand-logo">
+          <div class="brand-symbol">F</div>
+          <div class="brand-text">
+            <h1>FINTRAC</h1>
+            <span>Renewal Engine</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-role-badge">
+        <span class="role-name user-role-label">Renewal Tracking</span>
+        <span class="status-live">● Rollover Active</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        <a href="admin.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Command Centre
+        </a>
+        <a href="fdr-records.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          All FDR Records
+        </a>
+        <a href="renewal.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          Renewal Tracking
+        </a>
+        <a href="maturity.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          Maturity Monitoring
+        </a>
+        <a href="release-requests.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Release / Refund
+        </a>
+        <a href="alerts.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          Alert Centre
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar">AB</div>
+          <div class="user-details">
+            <div class="user-name">Dr. R. K. Soni</div>
+            <div class="user-subtext">AICTE Bureau Chief</div>
+          </div>
+          <button class="btn-sidebar-logout" onclick="FINTRAC_AUTH.logout()" title="Sign Out">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="btn-mobile-toggle">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="page-title-box">
+            <h2 class="serif-heading">FDR Renewal &amp; Replacement Module</h2>
+            <p>Seamlessly file rollover instruments and track replacement parent-child relationships</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="quick-role-switch">
+            <a href="admin.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('admin'); return false;">AICTE Admin</a>
+            <a href="institution.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('institution'); return false;">Institution</a>
+            <a href="reviewer.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('reviewer'); return false;">Reviewer</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-container">
+
+        <!-- Renewal Submission Form -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              Submit Replacement / Renewal Instrument
+            </h3>
+            <span class="badge badge-forest">Institution Action</span>
+          </div>
+
+          <div class="card-body">
+            <form id="renewal-submission-form">
+
+              <!-- Original FDR Selection -->
+              <div class="form-group">
+                <label class="form-label" for="renewal-original-ref">
+                  Select Original Expiring or Matured FDR <span class="required">*</span>
+                </label>
+                <select id="renewal-original-ref" class="form-control" required>
+                  <!-- Populated by JavaScript -->
+                </select>
+              </div>
+
+              <!-- Snapshot Container -->
+              <div id="original-fdr-info-card" style="display: none;"></div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="renewal-new-ref">
+                    New Replacement FDR Reference Number <span class="required">*</span>
+                  </label>
+                  <input type="text" id="renewal-new-ref" class="form-control font-mono" placeholder="e.g. SBI-REN-991204-Z" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="renewal-new-bank">
+                    Replacement Issuing Bank <span class="required">*</span>
+                  </label>
+                  <input type="text" id="renewal-new-bank" class="form-control" placeholder="e.g. State Bank of India" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="renewal-new-amount">
+                    Updated Deposit Amount (₹) <span class="required">*</span>
+                  </label>
+                  <input type="number" id="renewal-new-amount" class="form-control" placeholder="e.g. 15000000" min="1" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="renewal-new-issue-date">
+                    New Issue Date <span class="required">*</span>
+                  </label>
+                  <input type="date" id="renewal-new-issue-date" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="renewal-new-maturity-date">
+                    New Rollover Maturity Date <span class="required">*</span>
+                  </label>
+                  <input type="date" id="renewal-new-maturity-date" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Replacement Certificate PDF</label>
+                  <input type="file" class="form-control" accept=".pdf">
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="renewal-remarks">Institutional Renewal Notes &amp; Bank Term Memo</label>
+                  <textarea id="renewal-remarks" class="form-control" rows="2" placeholder="e.g. Rolled over with accrued interest for 3 years as per council mandate..."></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg">Submit Renewal for AICTE Scrutiny</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- Renewal History Table -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              Renewal &amp; Replacement Audit Log
+            </h3>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Replacement Instrument</th>
+                    <th>Bank &amp; Institution</th>
+                    <th>Rollover Amount</th>
+                    <th>New Tenure Horizon</th>
+                    <th>Scrutiny Status</th>
+                    <th>Institutional Remarks</th>
+                    <th>Regulatory Action</th>
+                  </tr>
+                </thead>
+                <tbody id="renewal-history-tbody">
+                  <!-- Populated by renewal.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Renewal Action Modal -->
+  <div class="modal-overlay" id="renewal-action-modal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3 id="renewal-action-modal-title">Renewal Scrutiny</h3>
+        <button class="modal-close" onclick="FINTRAC_APP.closeModal('renewal-action-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="renewal-action-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="FINTRAC_APP.closeModal('renewal-action-modal')">Cancel</button>
+        <button class="btn btn-terracotta" id="btn-reject-renewal">Reject Renewal</button>
+        <button class="btn btn-primary" id="btn-approve-renewal">Approve in Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/fdr.js"></script>
+  <script src="js/renewal.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      FINTRAC_AUTH.guard(['admin', 'institution', 'reviewer']);
+      FINTRAC_RENEWAL.init();
+
+      // Default dates
+      const today = new Date();
+      const future = new Date();
+      future.setFullYear(today.getFullYear() + 3);
+
+      document.getElementById('renewal-new-issue-date').value = today.toISOString().split('T')[0];
+      document.getElementById('renewal-new-maturity-date').value = future.toISOString().split('T')[0];
+    });
+  </script>
+</body>
+</html>

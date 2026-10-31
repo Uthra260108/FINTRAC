@@ -1,0 +1,286 @@
+/* ==========================================================================
+   FINTRAC — Forms, Inputs, File Uploads & Scrutiny Controls
+   ========================================================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group.col-span-2 {
+  grid-column: span 2;
+}
+
+.form-group.col-span-full {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-label .required {
+  color: var(--color-terracotta);
+}
+
+.form-label-hint {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: auto;
+}
+
+.form-control {
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  color: var(--color-navy);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.form-control:focus {
+  border-color: var(--color-forest);
+  box-shadow: 0 0 0 3px var(--color-forest-glow);
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: var(--bg-card-subtle);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  border-color: var(--border-light);
+}
+
+.form-control.is-invalid {
+  border-color: var(--color-terracotta);
+}
+
+.form-feedback {
+  font-size: 0.76rem;
+  color: var(--color-terracotta);
+  display: none;
+  margin-top: 2px;
+}
+
+.form-control.is-invalid + .form-feedback {
+  display: block;
+}
+
+/* Input with Prefix or Suffix */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix,
+.input-suffix {
+  position: absolute;
+  padding: 0 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+
+.input-prefix { left: 0; }
+.input-suffix { right: 0; }
+
+.input-group input.has-prefix {
+  padding-left: 32px;
+}
+
+.input-group input.has-suffix {
+  padding-right: 48px;
+}
+
+/* File Upload Dropzone */
+.file-dropzone {
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  background-color: var(--bg-card-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.file-dropzone:hover,
+.file-dropzone.dragover {
+  border-color: var(--color-forest);
+  background-color: var(--color-peach-light);
+}
+
+.file-dropzone-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 10px auto;
+  color: var(--color-forest);
+}
+
+.file-dropzone-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 4px;
+}
+
+.file-dropzone-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.file-dropzone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Document Preview Card */
+.doc-preview-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  margin-top: 10px;
+}
+
+.doc-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doc-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  background: var(--color-peach);
+  color: var(--color-forest-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.doc-name {
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: var(--color-navy);
+}
+
+.doc-size {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* Radio Selection Cards (for Scrutiny & Decisions) */
+.decision-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.decision-card {
+  position: relative;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  cursor: pointer;
+  background: #FFFFFF;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.decision-card:hover {
+  border-color: var(--color-forest);
+  background: var(--color-peach-light);
+}
+
+.decision-card.selected {
+  border-color: var(--color-forest);
+  background: rgba(68, 93, 72, 0.08);
+  box-shadow: 0 0 0 2px var(--color-forest);
+}
+
+.decision-card.decision-discrepancy.selected {
+  border-color: var(--color-terracotta);
+  background: var(--color-terracotta-subtle);
+  box-shadow: 0 0 0 2px var(--color-terracotta);
+}
+
+.decision-card.decision-pending.selected {
+  border-color: #8c7225;
+  background: var(--color-olive-subtle);
+  box-shadow: 0 0 0 2px #8c7225;
+}
+
+.decision-card-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.decision-card-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.decision-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Form Action Buttons Bar */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+  margin-top: 24px;
+}

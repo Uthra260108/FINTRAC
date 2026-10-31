@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity Profile &amp; Governance Settings | FINTRAC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Prototype Disclaimer Banner -->
+  <div class="prototype-banner">
+    <div class="banner-text">
+      <span class="pill-indicator">PROFILE &amp; PREFERENCES</span>
+      <span>FINTRAC: Institutional Entity Profile &amp; AICTE Bureau Registry Parameters.</span>
+    </div>
+    <div>
+      <a href="javascript:void(0)" onclick="FINTRAC_APP.confirmResetDemo()">Reset Demo Data</a>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="admin.html" class="brand-logo">
+          <div class="brand-symbol">F</div>
+          <div class="brand-text">
+            <h1>FINTRAC</h1>
+            <span>Settings Console</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-role-badge">
+        <span class="role-name user-role-label">System Settings</span>
+        <span class="status-live">● Configured</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        <a href="admin.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Command Centre
+        </a>
+        <a href="institution.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Institution Workspace
+        </a>
+        <a href="fdr-records.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          All FDR Records
+        </a>
+        <a href="profile.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Profile &amp; Settings
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          Audit History
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar">AB</div>
+          <div class="user-details">
+            <div class="user-name">Dr. R. K. Soni</div>
+            <div class="user-subtext">AICTE Bureau Chief</div>
+          </div>
+          <button class="btn-sidebar-logout" onclick="FINTRAC_AUTH.logout()" title="Sign Out">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="btn-mobile-toggle">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="page-title-box">
+            <h2 class="serif-heading">Entity Profile &amp; Governance Parameters</h2>
+            <p>Regulatory credentials, designated institutional authorities, and escalation triggers</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="quick-role-switch">
+            <a href="admin.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('admin'); return false;">AICTE Admin</a>
+            <a href="institution.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('institution'); return false;">Institution</a>
+            <a href="reviewer.html" class="role-pill" onclick="FINTRAC_AUTH.quickSwitchRole('reviewer'); return false;">Reviewer</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-container" style="max-width: 960px;">
+
+        <!-- Active User Profile Card -->
+        <div class="dashboard-card" style="padding: 28px;">
+          <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light);">
+            <div class="user-avatar" style="width: 64px; height: 64px; font-size: 1.5rem; background: var(--color-peach); color: var(--color-forest-dark);">
+              MIT
+            </div>
+            <div>
+              <span class="badge badge-forest mb-4" id="prof-role-badge">Institution Administrator</span>
+              <h3 class="serif-heading" style="font-size: 1.4rem; color: var(--color-navy); margin-bottom: 2px;" id="prof-display-name">
+                Dr. S. K. Kulkarni
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary);" id="prof-designation">
+                Registrar, Maharashtra Institute of Technology (MIT-WPU)
+              </p>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Affiliated Regulatory Entity</label>
+              <input type="text" id="prof-entity" class="form-control" value="Maharashtra Institute of Technology (MIT-WPU)" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">AICTE Bureau Accreditation ID</label>
+              <input type="text" id="prof-id" class="form-control font-mono" value="INST-AICTE-1001" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Official Registered Email</label>
+              <input type="email" id="prof-email" class="form-control" value="admin.fdr@mitwpu.edu.in">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Statutory Compliance Contact</label>
+              <input type="text" id="prof-phone" class="form-control" value="+91 20 2543 1795">
+            </div>
+          </div>
+        </div>
+
+        <!-- Reminder Escalation Preferences -->
+        <div class="dashboard-card" style="padding: 28px;">
+          <div class="card-header" style="padding: 0 0 16px 0; background: transparent;">
+            <h3>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              Automated Maturity Reminder Thresholds
+            </h3>
+          </div>
+          <div style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 20px;">
+            Configure automatic alert triggers dispatched to the institutional finance desk before deposit maturity:
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-light); cursor: pointer;">
+              <div>
+                <strong>90-Day Early Planning Horizon</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Generates advisory alert for upcoming bank discussions.</p>
+              </div>
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-forest);">
+            </label>
+
+            <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-light); cursor: pointer;">
+              <div>
+                <strong>60-Day Renewal Preparation Notice</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Notifies institution registrar to initiate renewal paperwork.</p>
+              </div>
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-forest);">
+            </label>
+
+            <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-light); cursor: pointer;">
+              <div>
+                <strong>30-Day Critical Warning Escalation</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Flags instrument across Alert Centre and AICTE Bureau radar.</p>
+              </div>
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-forest);">
+            </label>
+
+            <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-light); cursor: pointer;">
+              <div>
+                <strong>7-Day Urgent Imminent Expiry Alert</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Highest severity escalation requiring immediate bank rollover certificate.</p>
+              </div>
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-forest);">
+            </label>
+          </div>
+
+          <div style="margin-top: 24px; display: flex; justify-content: flex-end;">
+            <button class="btn btn-primary" onclick="FINTRAC_APP.showToast('Preferences Saved', 'Maturity notification thresholds updated.', 'success')">
+              Save Preferences
+            </button>
+          </div>
+        </div>
+
+        <!-- Demonstration Reset Zone -->
+        <div class="dashboard-card" style="padding: 24px; border: 1px dashed var(--border-medium); background: var(--color-peach-light);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h4 style="color: var(--color-navy); margin-bottom: 4px;">Prototype Demonstration Data Reset</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">
+                Restore all fictional institutions, FDRs, verifications, and audit trails back to original evaluation seed state.
+              </p>
+            </div>
+            <button class="btn btn-terracotta" onclick="FINTRAC_APP.confirmResetDemo()">
+              Reset Demo Records
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = FINTRAC_AUTH.guard(['admin', 'institution', 'reviewer']);
+      if (user) {
+        document.getElementById('prof-display-name').textContent = user.displayName;
+        document.getElementById('prof-designation').textContent = user.designation;
+        document.getElementById('prof-role-badge').textContent = user.role;
+        document.getElementById('prof-entity').value = user.institutionName || 'AICTE Regulation Bureau Headquarters, New Delhi';
+        document.getElementById('prof-id').value = user.institutionId || 'REG-AICTE-CENTRAL-HQ';
+      }
+    });
+  </script>
+</body>
+</html>

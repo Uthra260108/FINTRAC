@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Security Deposit / FDR | FINTRAC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Prototype Disclaimer Banner -->
+  <div class="prototype-banner">
+    <div class="banner-text">
+      <span class="pill-indicator">INSTRUMENT REGISTRATION</span>
+      <span>FINTRAC: New Financial Instrument Registration • Formally files statutory security deposit with AICTE Bureau.</span>
+    </div>
+    <div>
+      <a href="javascript:void(0)" onclick="FINTRAC_APP.confirmResetDemo()">Reset Demo Data</a>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="institution.html" class="brand-logo">
+          <div class="brand-symbol">F</div>
+          <div class="brand-text">
+            <h1>FINTRAC</h1>
+            <span>Institution Workspace</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-role-badge">
+        <span class="role-name">Institution Admin</span>
+        <span class="status-live">● Form Filing</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        <a href="institution.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Workspace Overview
+        </a>
+        <a href="fdr-records.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          My FDR Records
+        </a>
+        <a href="add-fdr.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Add New FDR
+        </a>
+        <a href="renewal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          Renewal / Replacement
+        </a>
+        <a href="release-requests.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Release / Refund
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar" style="background: var(--color-peach); color: var(--color-forest-dark);">MIT</div>
+          <div class="user-details">
+            <div class="user-name">Dr. S. K. Kulkarni</div>
+            <div class="user-subtext">Registrar, MIT-WPU</div>
+          </div>
+          <button class="btn-sidebar-logout" onclick="FINTRAC_AUTH.logout()" title="Sign Out">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="btn-mobile-toggle">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="page-title-box">
+            <h2 class="serif-heading">Register New Security Deposit / FDR</h2>
+            <p>Submit mandatory fixed deposit instrument details and supporting bank certificate</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <a href="institution.html" class="btn btn-secondary btn-sm">← Back to Workspace</a>
+        </div>
+      </header>
+
+      <div class="page-container" style="max-width: 980px;">
+
+        <form id="add-fdr-form" class="dashboard-card" style="padding: 28px;">
+
+          <!-- Section 1: Institution Details -->
+          <div style="border-bottom: 2px solid var(--border-light); padding-bottom: 18px; margin-bottom: 24px;">
+            <h3 class="serif-heading" style="font-size: 1.25rem; color: var(--color-navy); margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--color-peach); color: var(--color-forest-dark); font-size: 0.85rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-weight: 700;">1</span>
+              Institution Profile Details
+            </h3>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);">Verified institutional identification from registered session.</p>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="fdr-inst-name">Institution Name</label>
+              <input type="text" id="fdr-inst-name" class="form-control" value="Maharashtra Institute of Technology (MIT-WPU)" readonly>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fdr-inst-id">AICTE Approval ID</label>
+              <input type="text" id="fdr-inst-id" class="form-control font-mono" value="INST-AICTE-1001" readonly>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fdr-inst-address">Institution Campus Address</label>
+              <input type="text" id="fdr-inst-address" class="form-control" value="Paud Road, Kothrud, Pune, Maharashtra" readonly>
+            </div>
+          </div>
+
+          <!-- Section 2: Financial Instrument Details -->
+          <div style="border-bottom: 2px solid var(--border-light); padding-bottom: 18px; margin: 28px 0 24px 0;">
+            <h3 class="serif-heading" style="font-size: 1.25rem; color: var(--color-navy); margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--color-peach); color: var(--color-forest-dark); font-size: 0.85rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-weight: 700;">2</span>
+              Financial Instrument Information
+            </h3>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);">Enter primary deposit receipt terms as certified by the issuing bank.</p>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="fdr-ref">
+                FDR Reference Number <span class="required">*</span>
+              </label>
+              <input type="text" id="fdr-ref" class="form-control font-mono" placeholder="e.g. SBI-FDR-992812-X" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fdr-bank">
+                Issuing Commercial Bank <span class="required">*</span>
+              </label>
+              <select id="fdr-bank" class="form-control" required>
+                <option value="">-- Choose Scheduled Commercial Bank --</option>
+                <option value="State Bank of India">State Bank of India</option>
+                <option value="HDFC Bank">HDFC Bank</option>
+                <option value="ICICI Bank">ICICI Bank</option>
+                <option value="Punjab National Bank">Punjab National Bank</option>
+                <option value="Canara Bank">Canara Bank</option>
+                <option value="Bank of Baroda">Bank of Baroda</option>
+                <option value="Axis Bank">Axis Bank</option>
+                <option value="Union Bank of India">Union Bank of India</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fdr-branch">
+                Bank Branch &amp; IFSC <span class="required">*</span>
+              </label>
+              <input type="text" id="fdr-branch" class="form-control" placeholder="e.g. Kothrud Branch, Pune (SBIN0001234)" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fdr-amount">
+                Deposit Principal Amount (₹) <span class="required">*</span>
+                <span class="form-label-hint">Must be positive</span>
+              </label>
+              <div class="input-group">
+                <span class="input-prefix">₹</span>
+                <input type="number" id="fdr-amount" class="form-control has-prefix" placeholder="e.g. 10000000" min="1" step="10000" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fdr-issue-date">
+                Instrument Issue Date <span class="required">*</span>
+              </label>
+              <input type="date" id="fdr-issue-date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fdr-maturity-date">
+                Instrument Maturity Date <span class="required">*</span>
+                <span class="form-label-hint">Must be after issue date</span>
+              </label>
+              <input type="date" id="fdr-maturity-date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fdr-type">Instrument Type</label>
+              <select id="fdr-type" class="form-control">
+                <option value="Security Deposit (FDR)">Security Deposit (FDR)</option>
+                <option value="Fixed Deposit Receipt">Fixed Deposit Receipt</option>
+                <option value="Bank Guarantee Against FDR">Bank Guarantee Against FDR</option>
+                <option value="Endowment Fund Deposit">Endowment Fund Deposit</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fdr-holder">
+                Deposit Holder / Joint Endorsement <span class="required">*</span>
+              </label>
+              <input type="text" id="fdr-holder" class="form-control" value="Joint: Member Secretary, AICTE &amp; Registrar, MIT-WPU" required>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="fdr-remarks">Institutional Remarks &amp; Program Scope</label>
+              <textarea id="fdr-remarks" class="form-control" rows="2" placeholder="e.g. Security deposit for sanctioning new B.Tech AI &amp; Data Science divisions under Approval 2026-27..."></textarea>
+            </div>
+          </div>
+
+          <!-- Section 3: Document Upload Details -->
+          <div style="border-bottom: 2px solid var(--border-light); padding-bottom: 18px; margin: 28px 0 24px 0;">
+            <h3 class="serif-heading" style="font-size: 1.25rem; color: var(--color-navy); margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--color-peach); color: var(--color-forest-dark); font-size: 0.85rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-weight: 700;">3</span>
+              Document Proof &amp; Bank Endorsement
+            </h3>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);">Select PDF certificate or scanned receipt (stored as prototype metadata in browser localStorage).</p>
+          </div>
+
+          <div class="file-dropzone" id="fdr-dropzone">
+            <div class="file-dropzone-icon">
+              <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
+            <div class="file-dropzone-title">Click to Browse or Drag &amp; Drop Deposit PDF</div>
+            <div class="file-dropzone-desc">Accepts PDF, PNG, JPG (Demonstration metadata storage)</div>
+            <input type="file" id="fdr-file-input" accept=".pdf,.png,.jpg,.jpeg">
+          </div>
+
+          <div id="fdr-file-preview" style="display: none;"></div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <a href="institution.html" class="btn btn-secondary">Cancel</a>
+            <button type="button" class="btn btn-outline" id="btn-save-draft">Save as Draft</button>
+            <button type="submit" class="btn btn-primary btn-lg">Submit for Regulatory Review</button>
+          </div>
+
+        </form>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/fdr.js"></script>
+  <script src="js/institution.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      FINTRAC_AUTH.guard(['institution', 'admin']);
+      FINTRAC_INSTITUTION.initAddFDRForm();
+
+      // Set default dates for convenience
+      const today = new Date();
+      const nextYear = new Date();
+      nextYear.setFullYear(today.getFullYear() + 3);
+
+      document.getElementById('fdr-issue-date').value = today.toISOString().split('T')[0];
+      document.getElementById('fdr-maturity-date').value = nextYear.toISOString().split('T')[0];
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "system": "FINTRAC - Financial Instrument Tracking & Regulatory Administration Console",
+  "version": "1.0.0-prototype",
+  "disclaimer": "Fictional demonstration data for AICTE Security Deposit / FDR Portal evaluation. No real financial credentials or live bank endpoints.",
+  "sampleInstitutions": 12,
+  "sampleInstruments": 35,
+  "roles": [
+    { "role": "AICTE Regulation Bureau Administrator", "username": "admin", "password": "admin123" },
+    { "role": "Institution Administrator (MIT-WPU)", "username": "mit", "password": "mit123" },
+    { "role": "Authorized Reviewer (Demonstration)", "username": "reviewer", "password": "review123" }
+  ]
+}
